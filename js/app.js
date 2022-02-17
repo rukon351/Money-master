@@ -1,8 +1,3 @@
-// const food = document.getAnimations('food').value;
-// const rent = document.getElementById('rent').value;
-// const clothes = document.getElementById('clothes').value;
-
-
 function totalMoney(food, rent, clothes) {
     let total = Number(food) + Number(rent) + Number(clothes);
     return total;
@@ -34,6 +29,7 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     totalExpenses.innerText = totalMoney(foodText, rentText, clothesText);
     balance.innerText = totalbalance(incomeText, totalExpenses.innerText);
 
+    // clear value
     incomeField.value = '';
     food.value = '';
     rent.value = '';
@@ -47,6 +43,11 @@ document.getElementById('save-btn').addEventListener('click', function () {
     const savePersent = document.getElementById('save');
     const save = savePersent.value;
     const totalSavingInput = document.getElementById('saving-amount');
+    const remainingBalance = document.getElementById('remaining-balance');
 
     totalSavingInput.innerText = saving(amount, save);
+    remainingBalance.innerText = totalbalance(amount, totalSavingInput.innerText);
+
+    // clear value
+    save.value = '';
 })
