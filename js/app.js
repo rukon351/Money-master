@@ -8,7 +8,6 @@ function totalbalance(cuurentbalance, totalExpens) {
 }
 
 function saving(saving, balance) {
-    // return Number(balance) / Number(saving);
     return Number(saving / 100) * Number(balance);
 }
 
@@ -24,17 +23,19 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const rentText = rent.value;
     const clothes = document.getElementById('clothes');
     const clothesText = clothes.value;
-    // const errorMessage = document.getElementById('error-message');
-    // const errorText = errorMessage.innerText;
 
-    totalExpenses.innerText = totalMoney(foodText, rentText, clothesText);
-    balance.innerText = totalbalance(incomeText, totalExpenses.innerText);
 
-    // if (incomeField != Number && incomeField < 0) {
-    //     alert('you have sdfjasjf');
+    if (incomeText < 0 || foodText < 0 || rentText < 0 || clothesText < 0) {
+        alert('Please enter the positive value;');
+    }
+    // else if (incomeField != Number) {
+    //     alert('please type numbers');
     // }
+    else {
+        totalExpenses.innerText = totalMoney(foodText, rentText, clothesText);
+    };
 
-
+    balance.innerText = totalbalance(incomeText, totalExpenses.innerText);
 
     // clear value
     incomeField.value = '';
