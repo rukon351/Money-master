@@ -7,7 +7,8 @@ function totalMoney(food, rent, clothes) {
     return total;
 }
 function totalbalance(cuurentbalance, totalExpens) {
-    return cuurentbalance - totalExpens;
+    const totalBalanced = cuurentbalance - totalExpens;
+    return totalBalanced
 }
 
 document.getElementById('calculate-btn').addEventListener('click', function () {
@@ -22,8 +23,8 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const clothes = document.getElementById('clothes');
     const clothesText = clothes.value;
 
-    balance.innerText = totalbalance(incomeText, totalExpenses.innerText);
     totalExpenses.innerText = totalMoney(foodText, rentText, clothesText);
+    balance.innerText = totalbalance(incomeText, totalExpenses.innerText);
 
     incomeField.value = '';
     food.value = '';
