@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Count</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- header started -->
+    <header>
+        <div class="mt-4 mb-4 ">
+            <h1 class="text-center">My Balance Count💰</h1>
+        </div>
+    </header>
+    <!-- header end -->
+    <!-- main started -->
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="money-image">
+                        <img src="./image/money-pic.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <h3>Income</h3>
+                        <p>Income: <input id="income-field" type="text"></p>
+                        <div class="notify-section">
+                            <p id="error-message" class="notify">❌ Error: Input must a integer value.</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3>Expenses</h3>
+                        <p>Food: <input id="food" type="text"></p>
+                        <p>Rent: <input id="rent" type="text"></p>
+                        <p>Clothes: <input id="clothes" type="text"></p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button id="calculate-btn" type="button" class="btn btn-primary">Calculate</button>
+                    </div>
+                    <div class="text-center mt-4">
+                        <div>
+                            <h3>TotalExpenses: <span class="total-expenses" id="toatal-expenses">00</span> </h3>
+                        </div>
+                        <div>
+                            <h3>Balance: <span class="balance" id="balance">00</span></h3>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <p>Save: <input id="save" type="text"> % <button id="save-btn" type="button"
+                                class="btn btn-primary">Save</button>
+                        </p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <div>
+                            <h3>Saving Amount: <span class="saving-amount" id="saving-amount">2000</span></h3>
+                            <h3>Remaining Balance <span class="remaining-balance" id="remaining-balance">2000</span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- main end -->
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
+
+</html>
