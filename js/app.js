@@ -14,7 +14,7 @@ function saving(saving, balance) {
 // calculate section
 document.getElementById('calculate-btn').addEventListener('click', function () {
     const incomeField = document.getElementById('income-field');
-    const incomeText = parseInt(incomeField.value);
+    const incomeText = Number(incomeField.value);
     const totalExpenses = document.getElementById('toatal-expenses');
     const balance = document.getElementById('balance');
     const food = document.getElementById('food');
@@ -26,14 +26,21 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
 
     if (incomeText < 0 || foodText < 0 || rentText < 0 || clothesText < 0) {
-        alert('Please enter the positive value;');
+        alert('Please enter the positive value!!');
     }
-    // else if (incomeField != Number) {
-    //     alert('please type numbers');
+    // else if (typeof incomeField != 'number') {
+    //     console.log('please number dew')
+    //     // alert('Please enter a number');
+
     // }
+    else if (isNaN(incomeText) || isNaN(foodText) || isNaN(rentText) || isNaN(clothesText)) {
+        alert('Please inter a number!!')
+    }
+
     else {
         totalExpenses.innerText = totalMoney(foodText, rentText, clothesText);
     };
+
 
     balance.innerText = totalbalance(incomeText, totalExpenses.innerText);
 
@@ -56,6 +63,10 @@ document.getElementById('save-btn').addEventListener('click', function () {
     totalSavingInput.innerText = saving(save, amount);
     remainingBalance.innerText = totalbalance(amount, totalSavingInput.innerText);
 
+    if (save < 0 || isNaN(save)) {
+        alert('Please enter the positive value;');
+    }
+
     // clear value
-    save.value = '';
+    savePersent.value = '';
 })
