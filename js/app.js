@@ -1,10 +1,11 @@
+// creat function
 function totalMoney(food, rent, clothes) {
     let total = Number(food) + Number(rent) + Number(clothes);
     return total;
 }
 function totalbalance(cuurentbalance, totalExpens) {
     const totalBalanced = cuurentbalance - totalExpens;
-    return totalBalanced
+    return totalBalanced;
 }
 
 function saving(saving, balance) {
@@ -24,28 +25,21 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const clothes = document.getElementById('clothes');
     const clothesText = clothes.value;
 
+    totalExpenses.innerText = totalMoney(foodText, rentText, clothesText);
 
     if (incomeText < 0 || foodText < 0 || rentText < 0 || clothesText < 0) {
         alert('Please enter the positive value!!');
     }
-    // else if (typeof incomeField != 'number') {
-    //     console.log('please number dew')
-    //     // alert('Please enter a number');
-
-    // }
     else if (isNaN(incomeText) || isNaN(foodText) || isNaN(rentText) || isNaN(clothesText)) {
         alert('Please inter a number!!')
     }
-
-    else {
-        totalExpenses.innerText = totalMoney(foodText, rentText, clothesText);
-    };
-
+    else if (totalExpenses.innerText > incomeText) {
+        alert('You have not enough money!!')
+    }
 
     balance.innerText = totalbalance(incomeText, totalExpenses.innerText);
 
     // clear value
-    incomeField.value = '';
     food.value = '';
     rent.value = '';
     clothes.value = '';
@@ -53,18 +47,23 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
 // saving section
 document.getElementById('save-btn').addEventListener('click', function () {
-    const totalAmount = document.getElementById('balance');
-    const amount = totalAmount.innerText
+    const totalBalance = document.getElementById('balance');
+    const balanceAfter = totalBalance.innerText
+    const totalAmount = document.getElementById('income-field');
+    const amount = Number(totalAmount.value);
     const savePersent = document.getElementById('save');
     const save = savePersent.value;
     const totalSavingInput = document.getElementById('saving-amount');
     const remainingBalance = document.getElementById('remaining-balance');
 
     totalSavingInput.innerText = saving(save, amount);
-    remainingBalance.innerText = totalbalance(amount, totalSavingInput.innerText);
+    remainingBalance.innerText = totalbalance(balanceAfter, totalSavingInput.innerText);
 
     if (save < 0 || isNaN(save)) {
-        alert('Please enter the positive value;');
+        alert('Please enter the positive value!!');
+    }
+    else if (save > balanceAfter) {
+        alert('You have no enought balance!!');
     }
 
     // clear value
