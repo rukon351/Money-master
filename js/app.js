@@ -2,6 +2,7 @@
 // const rent = document.getElementById('rent').value;
 // const clothes = document.getElementById('clothes').value;
 
+
 function totalMoney(food, rent, clothes) {
     let total = Number(food) + Number(rent) + Number(clothes);
     return total;
@@ -11,6 +12,11 @@ function totalbalance(cuurentbalance, totalExpens) {
     return totalBalanced
 }
 
+function saving(balance, saving) {
+    return Number(balance) / Number(saving);
+}
+
+// calculate section
 document.getElementById('calculate-btn').addEventListener('click', function () {
     const incomeField = document.getElementById('income-field');
     const incomeText = parseInt(incomeField.value);
@@ -22,6 +28,8 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const rentText = rent.value;
     const clothes = document.getElementById('clothes');
     const clothesText = clothes.value;
+    // const errorMessage = document.getElementById('error-message');
+    // const errorText = errorMessage.innerText;
 
     totalExpenses.innerText = totalMoney(foodText, rentText, clothesText);
     balance.innerText = totalbalance(incomeText, totalExpenses.innerText);
@@ -30,19 +38,15 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     food.value = '';
     rent.value = '';
     clothes.value = '';
+})
 
+// saving section
+document.getElementById('save-btn').addEventListener('click', function () {
+    const totalAmount = document.getElementById('balance');
+    const amount = totalAmount.innerText
+    const savePersent = document.getElementById('save');
+    const save = savePersent.value;
+    const totalSavingInput = document.getElementById('saving-amount');
 
-
-
-
-
-    // function textBalance() {
-    //     const food = document.getAnimations('food').value;
-    //     const rent = document.getElementById('rent').value;
-    //     const clothes = document.getElementById('clothes').value;
-    //     const totalExpenses = document.getElementById('toatal-expenses').innerText;
-    //     let totalField = food + rent + clothes;
-    //     totalExpenses.innerText = totalField.value;
-    // }
-
+    totalSavingInput.innerText = saving(amount, save);
 })
