@@ -7,8 +7,9 @@ function totalbalance(cuurentbalance, totalExpens) {
     return totalBalanced
 }
 
-function saving(balance, saving) {
-    return Number(balance) / Number(saving);
+function saving(saving, balance) {
+    // return Number(balance) / Number(saving);
+    return Number(saving / 100) * Number(balance);
 }
 
 // calculate section
@@ -29,6 +30,12 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     totalExpenses.innerText = totalMoney(foodText, rentText, clothesText);
     balance.innerText = totalbalance(incomeText, totalExpenses.innerText);
 
+    // if (incomeField != Number && incomeField < 0) {
+    //     alert('you have sdfjasjf');
+    // }
+
+
+
     // clear value
     incomeField.value = '';
     food.value = '';
@@ -45,7 +52,7 @@ document.getElementById('save-btn').addEventListener('click', function () {
     const totalSavingInput = document.getElementById('saving-amount');
     const remainingBalance = document.getElementById('remaining-balance');
 
-    totalSavingInput.innerText = saving(amount, save);
+    totalSavingInput.innerText = saving(save, amount);
     remainingBalance.innerText = totalbalance(amount, totalSavingInput.innerText);
 
     // clear value
